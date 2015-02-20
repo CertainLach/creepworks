@@ -17,7 +17,7 @@
 
             document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable variable: ' + result;
             result='_0x'+document.deob.unescaped.value.split('x')[1];
-            document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable pattern: ' + result;
+            document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable pattern (WIP): ' + result;
             t = v.split(' ')[1].split('=')[0];
             document.deob.log.value = document.deob.log.value + '\n Got obfuscation variable: ' + t;
             v = v.replace(new RegExp(t, 'g'), 'encoded');
