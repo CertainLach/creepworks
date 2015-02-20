@@ -4,11 +4,10 @@
 <h1>CreepWorks DeObfuscator v0.1</h1>
 <script language='javascript'>
 function deobfuscate() {
-	  var d1 = document.getElementById( "d1c" ).checked;
-	  var d2 = document.getElementById( "d2c" ).checked;
+      var d1 = document.getElementById( "d1c" ).checked;
+      var d2 = document.getElementById( "d2c" ).checked;
       document.deob.log.value = 'Started deobfuscation';
       var v = document.deob.escaped.value;
-      //v = v.replace(';', ';\n');
       t = v.split(' ')[1].split('=')[0];
       document.deob.log.value = document.deob.log.value + '\n Got obfuscation variable: ' + t;
       v = v.replace(new RegExp(t, 'g'), 'encoded');
