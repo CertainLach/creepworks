@@ -8,6 +8,7 @@
             var d1 = document.getElementById("d1c").checked;
             var d2 = document.getElementById("d2c").checked;
             var d3 = document.getElementById("d3c").checked;
+            var d4 = document.getElementById("d4c").checked;
             var unobfuscated='';
             document.deob.log.value = 'Started deobfuscation';
             var v = document.deob.escaped.value;
@@ -15,9 +16,9 @@
 			result = notable.exec(v);
             document.deob.unescaped.value = result;
 
-            document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable variable: ' + result;
-            result='_0x'+document.deob.unescaped.value.split('x')[1];
-            document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable pattern (WIP): ' + result;
+            document.deob.log.value = document.deob.log.value + '\n Got undeobfuscatable variable: ' + result;
+            result='_0x'+document.deob.unescaped.value.split('x')[1]+'x';
+            document.deob.log.value = document.deob.log.value + '\n Got undeobfuscatable pattern: ' + result;
             t = v.split(' ')[1].split('=')[0];
             document.deob.log.value = document.deob.log.value + '\n Got obfuscation variable: ' + t;
             v = v.replace(new RegExp(t, 'g'), 'encoded');
@@ -52,8 +53,6 @@
             }
             m = new Array();
             m = v.split(';');
-//			ToDo:
-//          add support for /_0x\w\w\w\wx\d+/ig
             oc = count;
             count = 0;
 
@@ -88,6 +87,11 @@
                 }
             }
             v = m.join(';').replace('//Deobfuscated by CreepWorks DeObfuscator;', '//Deobfuscated by CreepWorks DeObfuscator\n')
+            if(d4){
+            	while (v.indexOf(result)>=0) {
+            		v.replace(result,'unknow');
+            	}
+            }
             document.deob.unescaped.value = v;
             document.deob.log.value = document.deob.log.value + '\nDeobfuscated';
         }
@@ -111,6 +115,8 @@
                     <label for="d2c">Operands</label>
                     <input type="checkbox" id="d3c" checked="checked" />
                     <label for="d3c">Remove 'this'</label>
+                    <input type="checkbox" id="d4c" />
+                    <label for="d4c">Unknow vars</label>
                 </td>
             </tr>
             <tr>
