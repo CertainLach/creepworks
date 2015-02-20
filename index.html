@@ -8,8 +8,16 @@
             var d1 = document.getElementById("d1c").checked;
             var d2 = document.getElementById("d2c").checked;
             var d3 = document.getElementById("d3c").checked;
+            var unobfuscated='';
             document.deob.log.value = 'Started deobfuscation';
             var v = document.deob.escaped.value;
+            notable = /_0x\w\w\w\wx\d+/ig;
+			result = notable.exec(v);
+            document.deob.unescaped.value = result;
+
+            document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable variable: ' + result;
+            result='_0x'+document.deob.unescaped.value.split('x')[1];
+            document.deob.log.value = document.deob.log.value + '\n Got unobfuscatable pattern: ' + result;
             t = v.split(' ')[1].split('=')[0];
             document.deob.log.value = document.deob.log.value + '\n Got obfuscation variable: ' + t;
             v = v.replace(new RegExp(t, 'g'), 'encoded');
@@ -44,6 +52,8 @@
             }
             m = new Array();
             m = v.split(';');
+//			ToDo:
+//          add support for /_0x\w\w\w\wx\d+/ig
             oc = count;
             count = 0;
 
@@ -96,9 +106,9 @@
                 <td>
                     <input type='button' name='cmdDoIt' id='cmdDoIt' value='Deobfuscate!' onclick='deobfuscate()'>
                     <input type="checkbox" id="d1c" checked="checked" />
-                    <label for="d1c">Decode values</label>
+                    <label for="d1c">Values</label>
                     <input type="checkbox" id="d2c" checked="checked" />
-                    <label for="d2c">Decode operands</label>
+                    <label for="d2c">Operands</label>
                     <input type="checkbox" id="d3c" checked="checked" />
                     <label for="d3c">Remove 'this'</label>
                 </td>
