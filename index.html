@@ -26,8 +26,7 @@ function deobfuscate() {
           document.deob.dictionary.value = document.deob.dictionary.value + i + ': ' + decoded[i] + '\n';
       };
       document.deob.log.value = document.deob.log.value + '\n Formatted deobfuscation dictionary';
-      if(d1) 
-      	m[0] = '//Deobfuscated by CreepWorks DeObfuscator';
+      if(d1) {m[0] = '//Deobfuscated by CreepWorks DeObfuscator';}
       v = m.join(';');
       if(d1){
       	count = 0;
@@ -46,9 +45,11 @@ function deobfuscate() {
       count = 0;
       
       if (d3){
+      	count=0;
       for (i = 0; i < m.length; i++) {
-            if(m[i].split(' ')[0]!='return'){m[i].replace(new RegExp("this",'g'),'');}
-      }}
+            if(m[i].indexOf('this')>=0){m[i]=m[i].replace(new RegExp("this",'g'),'');count++;}
+      }document.deob.log.value = document.deob.log.value + '\n Processing 2: Decoded total ' + count + ' strings';}
+
       if (d2){
       for (i = 0; i < m.length; i++) {
           var t1 = '"]["';
@@ -62,7 +63,7 @@ function deobfuscate() {
               jjj--;
           }
       }
-      document.deob.log.value = document.deob.log.value + '\n Processing 2: Decoded total ' + count + ' strings';}
+      document.deob.log.value = document.deob.log.value + '\n Processing 3: Decoded total ' + count + ' strings';}
       v = m.join(';').replace('//Deobfuscated by CreepWorks DeObfuscator;','//Deobfuscated by CreepWorks DeObfuscator\n')
       document.deob.unescaped.value = v;
       document.deob.log.value = document.deob.log.value + '\nDeobfuscated';
