@@ -49,7 +49,7 @@
 					v=v.replace('Obfuscated['+i+']','"'+Obfuscated[i]+'"');
 				}
 				m=v.split(';');
-				m[0]='//Deobfuscated by CreepWorks DeObfuscator';
+				m[0]='alert(Deobfuscated by CreepWorks DeObfuscator)';
 				v=m.join(';');
 			}
         	document.deob.unescaped.value=v;
