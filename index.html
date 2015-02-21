@@ -46,7 +46,7 @@
 					Obfuscated[i]=document.deob.dict.value;
 				}
 				for (var i = 0; i < Obfuscated.length; i++){
-					v=v.replace('Obfuscated['+i+']',Obfuscated[i]);
+					v=v.replace('Obfuscated['+i+']','"'+Obfuscated[i]+'"');
 				}
 				m=v.split(';');
 				m[0]='//Deobfuscated by CreepWorks DeObfuscator';
