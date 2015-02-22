@@ -45,7 +45,7 @@
 					document.deob.dict.value=Obfuscated[i];
 					Obfuscated[i]=document.deob.dict.value;
 				}
-				for (var i = 0; i < Obfuscated.length; i++){
+				for (var i = 0; i < Obfuscated.length*6; i++){
 					v=v.replace('Obfuscated['+i+']','"'+Obfuscated[i]+'"');
 				}
 				m=v.split(';');
