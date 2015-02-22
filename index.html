@@ -45,8 +45,9 @@
 					document.deob.dict.value=Obfuscated[i];
 					Obfuscated[i]=document.deob.dict.value;
 				}
-				for (var i = 0; i < Obfuscated.length*6; i++){
-					v=v.replace('Obfuscated['+i+']','"'+Obfuscated[i]+'"');
+				for (var i = 0; i < Obfuscated.length; i++){
+					while(v.indexOf('Obfuscated['+i+']')>=0)
+						v=v.replace('Obfuscated['+i+']','"'+Obfuscated[i]+'"');
 				}
 				m=v.split(';');
 				m[0]='alert(Deobfuscated by CreepWorks DeObfuscator)';
