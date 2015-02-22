@@ -1,0 +1,152 @@
+<html>
+
+<body>
+	<script>
+		var github = true;
+		if (!github) {
+			(function (i, s, o, g, r, a, m) {
+				i['GoogleAnalyticsObject'] = r;
+				i[r] = i[r] || function () {
+					(i[r].q = i[r].q || [])
+					.push(arguments)
+				}, i[r].l = 1 * new Date();
+				a = s.createElement(o),
+					m = s.getElementsByTagName(o)[0];
+				a.async = 1;
+				a.src = g;
+				m.parentNode.insertBefore(a, m)
+			})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+			ga('create', 'UA-60020223-1', 'auto');
+			ga('send', 'pageview');
+		}
+
+	</script>
+	<script src="./lib.js"></script>
+	<script language='javascript'>
+		function writelog(n, text) {
+			if (n)
+				document.deob.log.value = text;
+			else
+				document.deob.log.value = document.deob.log.value + '\n' + text;
+		}
+
+		function test() {
+			regex = new RegExp('_0x....=');
+			testing = document.deob.escaped.value.split(" ")[1];
+			testing = testing.split("[")[0];
+			testing = regex.exec(testing) != null;
+			if (testing)
+				return 1;
+			else
+				return 0;
+		}
+
+		function deobfuscate(type) {
+			writelog(false, ' Started deobfuscation');
+			if (type === 1) {
+				v = document.deob.escaped.value;
+				t = v.split(' ')[1].split('=')[0];
+				writelog(false, '  Deobfuscation variable: ' + t);
+				notable = /_0x....x\d+/g;
+				notable2 = /_0x....x/g;
+				result = notable.exec(v);
+				document.deob.unescaped.value = result;
+				result = '_0x' + document.deob.unescaped.value.split('x')[1] + 'x';
+				writelog(false, '  Unknown var pattern: ' + result);
+				v = v.replace(notable2, 'Unknown_')
+					.replace(new RegExp(t, 'g'), 'Obfuscated');
+				writelog(false, '  Replaced');
+				eval(v.split(';')[0]);
+				obf = 'var Obfuscated=["' + Obfuscated.join('","') + '"]'.replace('\\', '\\\\');
+				document.deob.dictionary.value = '';
+				for (var i = 0; i < Obfuscated.length; i++) {
+					document.deob.dictionary.value = document.deob.dictionary.value + i + ': ' + Obfuscated[i] + '\n';
+					document.deob.dict.value = Obfuscated[i];
+					Obfuscated[i] = document.deob.dict.value;
+				}
+				for (var i = 0; i < Obfuscated.length; i++) {
+					while (v.indexOf('Obfuscated[' + i + ']') >= 0)
+						v = v.replace('Obfuscated[' + i + ']', '"' + Obfuscated[i] + '"');
+				}
+				m = v.split(';');
+				m[0] = 'alert(Deobfuscated by CreepWorks DeObfuscator)';
+				v = m.join(';');
+			}
+			document.deob.unescaped.value = v;
+		}
+
+		function main() {
+			document.deob.escaped.value = jsmin(document.deob.escaped.value, 3)
+				.replace('\n', '');
+			type = test();
+			if (type === 1) {
+				writelog(true, 'Test was sucessful, obfuscator type - ' + type);
+				deobfuscate(1)
+			} else
+				writelog(false, 'Obfuscator type is not reconised, sorry...');
+			document.deob.unescaped.value = js_beautify(document.deob.unescaped.value);
+		}
+
+	</script>
+	<form name='deob' id='deob'>
+		<table border='3'>
+			<tr>
+				<td>
+					<center>
+						<h1>CreepWorks DeObfuscator v0.1</h1>
+					</center>
+				</td>
+				<td>
+					<center>By Creeplays #4pda</center>
+				</td>
+			</tr>
+
+			<tr>
+				<td valign='top'>Obfuscated:</td>
+				<td>
+					<textarea name='escaped' id='escaped' rows='10' cols='103%'>var _0x2135=["\x53\x61\x79\x48\x65\x6C\x6C\x6F","\x47\x65\x74\x43\x6F\x75\x6E\x74","\x4D\x65\x73\x73\x61\x67\x65\x20\x3A\x20","\x59\x6F\x75\x20\x61\x72\x65\x20\x77\x65\x6C\x63\x6F\x6D\x65\x2E"];function NewObject(_0x28ffx2){var _0x28ffx3=0;this[_0x2135[0]]=function(_0x28ffx4){_0x28ffx3++;alert(_0x28ffx2+_0x28ffx4);};this[_0x2135[1]]=function(){return _0x28ffx3};}var obj=new NewObject(_0x2135[2]);obj.SayHello(_0x2135[3]);
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Click here:</td>
+				<td>
+					<input type='button' name='cmdDoIt' id='cmdDoIt' value='Deobfuscate!' onclick='main()'>
+					<input type="checkbox" id="d1c" checked="checked" />
+					<label for="d1c">Values</label>
+					<input type="checkbox" id="d2c" checked="checked" />
+					<label for="d2c">Operands</label>
+					<input type="checkbox" id="d3c" checked="checked" />
+					<label for="d3c">Remove 'this'</label>
+					<input type="checkbox" id="d4c" />
+					<label for="d4c">Unknow vars</label>
+				</td>
+			</tr>
+			<tr>
+				<td valign='top'>Log:</td>
+				<td>
+					<textarea name='log' id='log' rows='10' cols=70%></textarea>
+					<textarea name='advanced' id='advanced' rows='10' cols='30%'></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td valign='top'>Deobfuscated:</td>
+				<td>
+					<textarea name='unescaped' id='unescaped' rows='10' cols='103%'></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td valign='top'>Dictionary:</td>
+				<td>
+					<textarea name='dictionary' id='dictionary' rows='10' cols='103%'></textarea>
+					<textarea disabled name='dict' id='dict' rows='1' cols='103%'></textarea>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+
+</body>
+
+</html>
