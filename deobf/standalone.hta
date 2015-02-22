@@ -1,0 +1,92 @@
+<html>
+
+<body>
+    <script language='javascript'>
+function js_beautify(u,r){function E(){for(;n.length&&(" "===n[n.length-1]||n[n.length-1]===F);)n.pop()}function z(b){return"[EXPRESSION]"===b||"[INDENTED-EXPRESSION]"===b}function g(b){c.eat_next_space=!1;if(!J||!z(c.mode))if(b="undefined"===typeof b?!0:b,c.if_line=!1,E(),n.length){"\n"===n[n.length-1]&&b||(G=!0,n.push("\n"));for(b=0;b<c.indentation_level;b+=1)n.push(F);c.var_line&&c.var_line_reindented&&(" "===T?n.push("    "):n.push(F))}}function p(){if(c.eat_next_space)c.eat_next_space=!1;else{var b=
+" ";n.length&&(b=n[n.length-1]);" "!==b&&"\n"!==b&&b!==F&&n.push(" ")}}function e(){G=!1;c.eat_next_space=!1;n.push(q)}function l(){n.length&&n[n.length-1]===F&&n.pop()}function y(b){c&&N.push(c);c={previous_mode:c?c.mode:"BLOCK",mode:b,var_line:!1,var_line_tainted:!1,var_line_reindented:!1,in_html_comment:!1,if_line:!1,in_case:!1,eat_next_space:!1,indentation_baseline:-1,indentation_level:c?c.indentation_level+(c.var_line&&c.var_line_reindented?1:0):X}}function z(b){return"[EXPRESSION]"===b||"[INDENTED-EXPRESSION]"===
+b}function D(b){return"[EXPRESSION]"===b||"[INDENTED-EXPRESSION]"===b||"(EXPRESSION)"===b}function C(){O="DO_BLOCK"===c.mode;0<N.length&&(c=N.pop())}function x(b,a){for(var c=0;c<a.length;c+=1)if(a[c]===b)return!0;return!1}function d(){for(var a=0,c=0,d=n.length-1;0<=d;d--)switch(n[d]){case ":":0===a&&c++;break;case "?":if(0===a){if(0===c)return!0;c--}break;case "{":if(0===a)return!1;a--;break;case "(":case "[":a--;break;case ")":case "]":case "}":a++}}function U(){H=0;if(a>=A)return["","TK_EOF"];
+M=!1;var b=h.charAt(a);a+=1;if(J&&z(c.mode)){for(var d=0;x(b,Q);){"\n"===b?(E(),n.push("\n"),G=!0,d=0):d="\t"===b?d+4:d+1;if(a>=A)return["","TK_EOF"];b=h.charAt(a);a+=1}-1===c.indentation_baseline&&(c.indentation_baseline=d);if(G){var e;for(e=0;e<c.indentation_level+1;e+=1)n.push(F);if(-1!==c.indentation_baseline)for(e=0;e<d-c.indentation_baseline;e++)n.push(" ")}}else{for(;x(b,Q);){"\n"===b&&(H+=1);if(a>=A)return["","TK_EOF"];b=h.charAt(a);a+=1}if(V&&1<H)for(e=0;e<H;e+=1)g(0===e),G=!0;M=0<H}if(x(b,
+P)){if(a<A)for(;x(h.charAt(a),P)&&(b+=h.charAt(a),a+=1,a!==A););if(a!==A&&b.match(/^[0-9]+[Ee]$/)&&("-"===h.charAt(a)||"+"===h.charAt(a)))return d=h.charAt(a),a+=1,e=U(a),b+=d+e[0],[b,"TK_WORD"];if("in"===b)return[b,"TK_OPERATOR"];!M||"TK_OPERATOR"===f||c.if_line||!V&&"var"===k||g();return[b,"TK_WORD"]}if("("===b||"["===b)return[b,"TK_START_EXPR"];if(")"===b||"]"===b)return[b,"TK_END_EXPR"];if("{"===b)return[b,"TK_START_BLOCK"];if("}"===b)return[b,"TK_END_BLOCK"];if(";"===b)return[b,"TK_SEMICOLON"];
+if("/"===b){d="";e=!0;if("*"===h.charAt(a)){a+=1;if(a<A)for(;("*"!==h.charAt(a)||!h.charAt(a+1)||"/"!==h.charAt(a+1))&&a<A;){b=h.charAt(a);d+=b;if("\r"===b||"\n"===b)e=!1;a+=1;if(a>=A)break}a+=2;return e?["/*"+d+"*/","TK_INLINE_COMMENT"]:["/*"+d+"*/","TK_BLOCK_COMMENT"]}if("/"===h.charAt(a)){for(d=b;"\r"!==h.charAt(a)&&"\n"!==h.charAt(a)&&!(d+=h.charAt(a),a+=1,a>=A););a+=1;M&&g();return[d,"TK_COMMENT"]}}if("'"===b||'"'===b||"/"===b&&("TK_WORD"===f&&x(k,["return","do"])||"TK_START_EXPR"===f||"TK_START_BLOCK"===
+f||"TK_END_BLOCK"===f||"TK_OPERATOR"===f||"TK_EQUALS"===f||"TK_EOF"===f||"TK_SEMICOLON"===f)){d=b;e=!1;if(a<A)if("/"===d)for(var l=!1;e||l||h.charAt(a)!==d;){if(b+=h.charAt(a),e?e=!1:(e="\\"===h.charAt(a),"["===h.charAt(a)?l=!0:"]"===h.charAt(a)&&(l=!1)),a+=1,a>=A)return[b,"TK_STRING"]}else for(;e||h.charAt(a)!==d;)if(b+=h.charAt(a),e=e?!1:"\\"===h.charAt(a),a+=1,a>=A)return[b,"TK_STRING"];a+=1;b+=d;if("/"===d)for(;a<A&&x(h.charAt(a),P);)b+=h.charAt(a),a+=1;return[b,"TK_STRING"]}if("#"===b&&(d="#",
+a<A&&x(h.charAt(a),W))){do b=h.charAt(a),d+=b,a+=1;while(a<A&&"#"!==b&&"="!==b);"#"!==b&&("["===h.charAt(a)&&"]"===h.charAt(a+1)?(d+="[]",a+=2):"{"===h.charAt(a)&&"}"===h.charAt(a+1)&&(d+="{}",a+=2));return[d,"TK_WORD"]}if("<"===b&&"\x3c!--"===h.substring(a-1,a+3))return a+=3,c.in_html_comment=!0,["\x3c!--","TK_COMMENT"];if("-"===b&&c.in_html_comment&&"--\x3e"===h.substring(a-1,a+2))return c.in_html_comment=!1,a+=2,M&&g(),["--\x3e","TK_COMMENT"];if(x(b,R)){for(;a<A&&x(b+h.charAt(a),R)&&!(b+=h.charAt(a),
+a+=1,a>=A););return"="===b?[b,"TK_EQUALS"]:[b,"TK_OPERATOR"]}return[b,"TK_UNKNOWN"]}var h,n,q,f,k,B,I,c,N,F,Q,P,R,a,K,W,w,L,O,M,G,H;r=r?r:{};var S=r.braces_on_own_line?r.braces_on_own_line:!1;I=r.indent_size?r.indent_size:4;var T=r.indent_char?r.indent_char:" ",V="undefined"===typeof r.preserve_newlines?!0:r.preserve_newlines,X=r.indent_level?r.indent_level:0,Y="undefined"===r.space_after_anon_function?!1:r.space_after_anon_function,J="undefined"===typeof r.keep_array_indentation?!1:r.keep_array_indentation;
+G=!1;var A=u.length;for(F="";0<I;)F+=T,--I;h=u;I="";f="TK_START_EXPR";B=k="";n=[];O=!1;Q=["\n","\r","\t"," "];P="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_$".split("");W="0123456789".split("");R="+ - * / % & ++ -- = += -= *= /= %= == === != !== > < >= <= >> << >>> >>>= >>= <<= && &= | || ! !! , : ? ^ ^= |= ::".split(" ");K="continue try throw return var if switch case default for while break function".split(" ");N=[];y("BLOCK");for(a=0;;){L=U(a);q=L[0];L=L[1];if("TK_EOF"===L)break;
+switch(L){case "TK_START_EXPR":if("["===q){if("TK_WORD"===f||")"===k){x(k,K)&&p();y("(EXPRESSION)");e();break}"[EXPRESSION]"===c.mode||"[INDENTED-EXPRESSION]"===c.mode?"]"===B&&","===k?("[EXPRESSION]"===c.mode&&(c.mode="[INDENTED-EXPRESSION]",J||(c.indentation_level+=1)),y("[EXPRESSION]"),J||g()):"["===k?("[EXPRESSION]"===c.mode&&(c.mode="[INDENTED-EXPRESSION]",J||(c.indentation_level+=1)),y("[EXPRESSION]"),J||g()):y("[EXPRESSION]"):y("[EXPRESSION]")}else y("(EXPRESSION)");";"===k||"TK_START_BLOCK"===
+f?g():"TK_END_EXPR"!==f&&"TK_START_EXPR"!==f&&"TK_END_BLOCK"!==f&&"."!==k&&("TK_WORD"!==f&&"TK_OPERATOR"!==f?p():"function"===I?Y&&p():(x(k,K)||"catch"===k)&&p());e();break;case "TK_END_EXPR":if("]"===q)if(J){if("}"===k){l();e();C();break}}else if("[INDENTED-EXPRESSION]"===c.mode&&"]"===k){C();g();e();break}C();e();break;case "TK_START_BLOCK":"do"===I?y("DO_BLOCK"):y("BLOCK");S?("TK_OPERATOR"!==f&&("return"==k?p():g(!0)),e(),c.indentation_level+=1):("TK_OPERATOR"!==f&&"TK_START_EXPR"!==f?"TK_START_BLOCK"===
+f?g():p():z(c.previous_mode)&&","===k&&g(),c.indentation_level+=1,e());break;case "TK_END_BLOCK":C();S?g():"TK_START_BLOCK"===f?G?l():E():g();e();break;case "TK_WORD":if(O){p();e();p();O=!1;break}if("function"===q&&(G||";"===k)&&"{"!==k)for(H=G?H:0,w=0;w<2-H;w++)g(!1);if("case"===q||"default"===q){":"===k?l():(c.indentation_level--,g(),c.indentation_level++);e();c.in_case=!0;break}w="NONE";"TK_END_BLOCK"===f?x(q.toLowerCase(),["else","catch","finally"])?S?w="NEWLINE":(w="SPACE",p()):w="NEWLINE":"TK_SEMICOLON"!==
+f||"BLOCK"!==c.mode&&"DO_BLOCK"!==c.mode?"TK_SEMICOLON"===f&&D(c.mode)?w="SPACE":"TK_STRING"===f?w="NEWLINE":"TK_WORD"===f?w="SPACE":"TK_START_BLOCK"===f?w="NEWLINE":"TK_END_EXPR"===f&&(p(),w="NEWLINE"):w="NEWLINE";if("TK_END_BLOCK"!==f&&x(q.toLowerCase(),["else","catch","finally"]))g();else if(x(q,K)||"NEWLINE"===w)if("else"===k)p();else{if("TK_START_EXPR"!==f&&"="!==k&&","!==k||"function"!==q)"return"===k||"throw"===k?p():"TK_END_EXPR"!==f?"TK_START_EXPR"===f&&"var"===q||":"===k||("if"===q&&"else"===
+I&&"{"!==k?p():g()):x(q,K)&&")"!==k&&g()}else z(c.mode)&&","===k&&"}"===B?g():"SPACE"===w&&p();e();I=q;"var"===q&&(c.var_line=!0,c.var_line_reindented=!1,c.var_line_tainted=!1);if("if"===q||"else"===q)c.if_line=!0;break;case "TK_SEMICOLON":e();c.var_line=!1;c.var_line_reindented=!1;break;case "TK_STRING":"TK_START_BLOCK"===f||"TK_END_BLOCK"===f||"TK_SEMICOLON"===f?g():"TK_WORD"===f&&p();e();break;case "TK_EQUALS":c.var_line&&(c.var_line_tainted=!0);p();e();p();break;case "TK_OPERATOR":w=B=!0;c.var_line&&
+","===q&&D(c.mode)&&(c.var_line_tainted=!1);if(c.var_line&&","===q)if(c.var_line_tainted){e();c.var_line_reindented=!0;c.var_line_tainted=!1;g();break}else c.var_line_tainted=!1;if("return"===k||"throw"===k){p();e();break}if(":"===q&&c.in_case){e();g();c.in_case=!1;break}if("::"===q){e();break}if(","===q){c.var_line?c.var_line_tainted?(e(),g(),c.var_line_tainted=!1):(e(),p()):"TK_END_BLOCK"===f&&"(EXPRESSION)"!==c.mode?(e(),"OBJECT"===c.mode&&"}"===k?g():p()):"OBJECT"===c.mode?(e(),g()):(e(),p());
+break}else x(q,["--","++","!"])||x(q,["-","+"])&&(x(f,["TK_START_BLOCK","TK_START_EXPR","TK_EQUALS","TK_OPERATOR"])||x(k,K))?(w=B=!1,";"===k&&D(c.mode)&&(B=!0),"TK_WORD"===f&&x(k,K)&&(B=!0),"BLOCK"!==c.mode||"{"!==k&&";"!==k||g()):"."===q?B=!1:":"!==q||d()||(c.mode="OBJECT",B=!1);B&&p();e();w&&p();break;case "TK_BLOCK_COMMENT":B=q.split(/\x0a|\x0d\x0a/);if(/^\/\*\*/.test(q))for(g(),n.push(B[0]),w=1;w<B.length;w++)g(),n.push(" "),n.push(B[w].replace(/^\s\s*|\s\s*$/,""));else for(1<B.length?(g(),E()):
+p(),w=0;w<B.length;w++)n.push(B[w]),n.push("\n");g();break;case "TK_INLINE_COMMENT":p();e();D(c.mode)?p():g();break;case "TK_COMMENT":M?g():p();e();g();break;case "TK_UNKNOWN":e()}B=k;f=L;k=q}return n.join("").replace(/[\n ]+$/,"")}String.prototype.has=function(u){return-1<this.indexOf(u)};
+function jsmin(u,r){function E(d){return-1!=d&&("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_$\\".has(d)||126<d.charCodeAt(0))}function z(){var d=D;if(C==x)return-1;D=-1;-1==d&&(d=u.charAt(C),++C);return" "<=d||"\n"==d?d:"\r"==d?"\n":" "}function g(){return D=z()}function p(){var d=z();if("/"==d)switch(g()){case "/":for(;;)if(d=z(),"\n">=d)return d;case "*":if(z(),"!"==g()){z();for(var e="/*!";;)switch(d=D,C==x?d=-1:(D=-1,-1==d&&(d=u.charAt(C),++C),d=" "<=d||"\n"==d||"\r"==d?d:
+" "),d){case "*":if("/"==g())return z(),e+"*/";break;case -1:throw"Error: Unterminated comment.";default:e+=d}}else for(;;)switch(z()){case "*":if("/"==g())return z()," ";break;case -1:throw"Error: Unterminated comment.";}}return d}function e(d){var e=[];1==d&&e.push(l);if(3>d&&(l=y,"'"==l||'"'==l))for(;;){e.push(l);l=z();if(l==y)break;if("\n">=l)throw"Error: unterminated string literal: "+l;"\\"==l&&(e.push(l),l=z())}y=p();if("/"==y&&"(,=:[!&|".has(l)){e.push(l);for(e.push(y);;){l=z();if("/"==l)break;
+else if("\\"==l)e.push(l),l=z();else if("\n">=l)throw"Error: unterminated Regular Expression literal";e.push(l)}y=p()}return e.join("")}if(void 0===u)u="",r=2;else if(void 0===r||1>r||3<r)r=2;var l="",y="",D=-1,C=0,x=u.length;return ret=function(){var d=[];l="\n";for(d.push(e(3));-1!=l;)switch(l){case " ":E(y)?d.push(e(1)):d.push(e(2));break;case "\n":switch(y){case "{":case "[":case "(":case "+":case "-":d.push(e(1));break;case " ":d.push(e(3));break;default:E(y)?d.push(e(1)):1==r&&"\n"!=y?d.push(e(1)):
+d.push(e(2))}break;default:switch(y){case " ":if(E(l)){d.push(e(1));break}d.push(e(3));break;case "\n":if(1==r&&"\n"!=l)d.push(e(1));else switch(l){case "}":case "]":case ")":case "+":case "-":case '"':case "'":3==r?d.push(e(3)):d.push(e(1));break;default:E(l)?d.push(e(1)):d.push(e(3))}break;default:d.push(e(1))}}return d.join("")}(u)}function writelog(u,r){document.deob.log.value=u?r:document.deob.log.value+"\n"+r}
+function test(){regex=/_0x....=/;testing=document.deob.escaped.value.split(" ")[1];testing=testing.split("[")[0];return(testing=null!=regex.exec(testing))?1:0}
+function deobfuscate(u){writelog(!1," Started deobfuscation");if(1===u){v=document.deob.escaped.value;t=v.split(" ")[1].split("=")[0];writelog(!1,"  Deobfuscation variable: "+t);notable=/_0x....x\d+/g;notable2=/_0x....x/g;result=notable.exec(v);document.deob.unescaped.value=result;result="_0x"+document.deob.unescaped.value.split("x")[1]+"x";writelog(!1,"  Unknown var pattern: "+result);v=v.replace(notable2,"Unknown_").replace(new RegExp(t,"g"),"Obfuscated");writelog(!1,"  Replaced");eval(v.split(";")[0]);
+obf='var Obfuscated=["'+Obfuscated.join('","')+'"]'.replace("\\","\\\\");document.deob.dictionary.value="";for(u=0;u<Obfuscated.length;u++)document.deob.dictionary.value=document.deob.dictionary.value+u+": "+Obfuscated[u]+"\n",document.deob.dict.value=Obfuscated[u],Obfuscated[u]=document.deob.dict.value;for(u=0;u<Obfuscated.length;u++)for(;0<=v.indexOf("Obfuscated["+u+"]");)v=v.replace("Obfuscated["+u+"]",'"'+Obfuscated[u]+'"');m=v.split(";");m[0]="alert(Deobfuscated by CreepWorks DeObfuscator)";
+v=m.join(";")}document.deob.unescaped.value=v}function main(){document.deob.escaped.value=jsmin(document.deob.escaped.value,3).replace("\n","");type=test();1===type?(writelog(!0,"Test was sucessful, obfuscator type - "+type),deobfuscate(1)):writelog(!1,"Obfuscator type is not reconised, sorry...");document.deob.unescaped.value=js_beautify(document.deob.unescaped.value)};
+    </script>
+    <form name='deob' id='deob'>
+        <table border='3'>
+            <tr>
+                <td>
+                    <center>
+                        <h1>CreepWorks DeObfuscator v0.1</h1>
+                    </center>
+                </td>
+                <td>
+                    <center>By Creeplays #4pda</center>
+                </td>
+            </tr>
+                
+                    <tr>
+                        <td valign='top'>Obfuscated:</td>
+                        <td>
+                            <textarea name='escaped' id='escaped' rows='10' cols='103%'>var _0x2135=["\x53\x61\x79\x48\x65\x6C\x6C\x6F","\x47\x65\x74\x43\x6F\x75\x6E\x74","\x4D\x65\x73\x73\x61\x67\x65\x20\x3A\x20","\x59\x6F\x75\x20\x61\x72\x65\x20\x77\x65\x6C\x63\x6F\x6D\x65\x2E"];function NewObject(_0x28ffx2){var _0x28ffx3=0;this[_0x2135[0]]=function(_0x28ffx4){_0x28ffx3++;alert(_0x28ffx2+_0x28ffx4);};this[_0x2135[1]]=function(){return _0x28ffx3};}var obj= new NewObject(_0x2135[2]);obj.SayHello(_0x2135[3]);
+                            </textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Click here:</td>
+                        <td>
+                            <input type='button' name='cmdDoIt' id='cmdDoIt' value='Deobfuscate!' onclick='main()'>
+                            <input type="checkbox" id="d1c" checked="checked" />
+                            <label for="d1c">Values</label>
+                            <input type="checkbox" id="d2c" checked="checked" />
+                            <label for="d2c">Operands</label>
+                            <input type="checkbox" id="d3c" checked="checked" />
+                            <label for="d3c">Remove 'this'</label>
+                            <input type="checkbox" id="d4c" />
+                            <label for="d4c">Unknow vars</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign='top'>Log:</td>
+                        <td>
+                            <textarea name='log' id='log' rows='10' cols=70%></textarea>
+                            <textarea name='advanced' id='advanced' rows='10' cols='30%'></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign='top'>Deobfuscated:</td>
+                        <td>
+                            <textarea name='unescaped' id='unescaped' rows='10' cols='103%'></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign='top'>Dictionary:</td>
+                        <td>
+                            <textarea name='dictionary' id='dictionary' rows='10' cols='103%'></textarea>
+                            <textarea disabled name='dict' id='dict' rows='1' cols='103%'></textarea>
+                        </td>
+                    </tr>
+        </table>
+    </form>
+ 
+
+</body>
+
+</html>
