@@ -13,10 +13,10 @@
 
 		function test(n) {
 			regex = new RegExp('_0x....=');
-			if(n==true)
-				testing = document.deob.escaped.value.split(" ")[1];
-			else
+			if(n)
 				testing = document.deob.unescaped.value.split(" ")[1];
+			else
+				testing = document.deob.escaped.value.split(" ")[1];
 			testing = testing.split("[")[0];
 			testing = regex.exec(testing) != null;
 			if (testing)
