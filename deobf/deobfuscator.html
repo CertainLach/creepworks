@@ -3,6 +3,7 @@
 <body>
 	<script src="./lib.js"></script>
 	<script language='javascript'>
+		var al=true;
 		function writelog(n, text) {
 			if (n)
 				document.deob.log.value = text;
@@ -10,9 +11,12 @@
 				document.deob.log.value = document.deob.log.value + '\n' + text;
 		}
 
-		function test() {
+		function test(n) {
 			regex = new RegExp('_0x....=');
-			testing = document.deob.escaped.value.split(" ")[1];
+			if(n==true)
+				testing = document.deob.escaped.value.split(" ")[1];
+			else
+				testing = document.deob.unescaped.value.split(" ")[1];
 			testing = testing.split("[")[0];
 			testing = regex.exec(testing) != null;
 			if (testing)
@@ -22,7 +26,12 @@
 		}
 
 		function deobfuscate(type) {
-			writelog(false, ' Started deobfuscation');
+			if(al)
+				writelog(false, ' Started deobfuscation');
+			else{
+				writelog(false, ' Multiple obfuscators detected, deobfuscation...');	
+			}
+			al=true;
 			if (type === 1) {
 				v = document.deob.escaped.value;
 				t = v.split(' ')[1].split('=')[0];
@@ -53,9 +62,17 @@
 				v = m.join(';');
 			}
 			document.deob.unescaped.value = v;
+			if (test(true)==1){
+				al=false;
+				document.deob.escaped.value=document.deob.unescaped.value;
+				document.deob.unescaped.value='';
+				deobfuscate(test());
+			}
+			writelog(true, ' Deobfuscated');
 		}
 
 		function main() {
+			al=true;
 			document.deob.escaped.value = jsmin(document.deob.escaped.value, 3)
 				.replace('\n', '');
 			type = test();
