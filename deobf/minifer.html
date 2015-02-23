@@ -1,0 +1,50 @@
+<html>
+
+<body>
+	<script src="./lib.js"></script>
+	<script language='javascript'>
+		function main() {
+			document.deob.escaped.value = jsmin(document.deob.escaped.value, 3);
+		}
+
+	</script>
+	<form name='deob' id='deob'>
+		<table border='3'>
+			<tr>
+				<td>
+					<center>
+						<h1>CreepWorks Minifer v0.1</h1>
+					</center>
+				</td>
+				<td>
+					<center>By Creeplays #4pda</center>
+				</td>
+			</tr>
+
+			<tr>
+				<td valign='top'>Code:</td>
+				<td>
+					<textarea name='escaped' id='escaped' rows='10' cols='103%'>
+					    document.write ('<table width="100%" border="1">');
+              for (i=1; i<6; i++) {
+                document.writeln("<tr>");
+                for (j=1; j<6; j++) document.write("<td>" + i + j + "<\/td>");
+                  document.writeln("<\/tr>");
+              }
+              document.write ("<\/table> ");
+					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Click here:</td>
+				<td>
+					<input type='button' name='cmdDoIt' id='cmdDoIt' value='Deobfuscate!' onclick='main()'>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+
+</body>
+
+</html>
