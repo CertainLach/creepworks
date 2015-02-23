@@ -49,6 +49,8 @@
 				obf = 'var Obfuscated=["' + Obfuscated.join('","') + '"]'.replace('\\', '\\\\');
 				document.deob.dictionary.value = '';
 				for (var i = 0; i < Obfuscated.length; i++) {
+					while(Obfuscated[i].indexOf('\n')>=0)
+						Obfuscated[i]=Obfuscated[i].replace('\n','\\n')	
 					document.deob.dictionary.value = document.deob.dictionary.value + i + ': ' + Obfuscated[i] + '\n';
 					document.deob.dict.value = Obfuscated[i];
 					Obfuscated[i] = document.deob.dict.value;
