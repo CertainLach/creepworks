@@ -75,6 +75,7 @@
 		}
 
 		function main() {
+			var initialscript=document.deob.escaped.value;
 			al=true;
 			document.deob.escaped.value = jsmin(document.deob.escaped.value, 3)
 				.replace('\n', '');
@@ -85,6 +86,7 @@
 			} else
 				writelog(true, 'Obfuscator type is not reconised, sorry...');
 			document.deob.unescaped.value = js_beautify(document.deob.unescaped.value);
+			document.deob.escaped.value=initialscript;
 			writelog(false, 'Seems like script is deobfuscated... Yay!');
 		}
 
