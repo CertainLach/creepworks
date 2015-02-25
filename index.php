@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <body>
-CreepWorks&nbsp<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
+CreepWorks||<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
 <br>
 <a href="http://creepworks.herokuapp.com/deobf/index.html">JavaScript Tools</a>
 <br>
