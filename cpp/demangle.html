@@ -1,0 +1,57 @@
+<html>
+
+<body>
+	<script src="./lib.js"></script>
+	<script language='javascript'>
+		var _demangle = cwrap('__cxa_demangle', 'string', ['string', 'string', 'number', 'number']);
+		demangle = function (mangled) {
+			return _demangle(mangled, "", 1, 0);
+		};
+
+		function dem(c) {
+			var a=c.split('\n');
+			for(var i=0;i<a.length;i++){
+				d=a[i];
+				d = demangle(d);
+				if(d=='(null)')d='//cannot demangle: '+a[i];
+				a[i]=d;
+			}
+			return a.join('\n');
+		}
+		function main()
+		{
+		    document.deob.escaped.value=dem(document.deob.escaped.value);
+		}
+
+	</script>
+<a href="http://creepworks.herokuapp.com/cpp/index.html">C++ Tools</a><a href="https://github.com/Creeplays/creepworks"> Source code</a>
+	<form name='deob' id='deob'>
+		<table border='3'>
+			<tr>
+				<td>
+					<center>
+						<h1>CreepWorks Demangler v0.1</h1>
+					</center>
+				</td>
+				<td>
+					<center>By Creeplays #4pda</center>
+				</td>
+			</tr>
+
+			<tr>
+				<td valign='top'>Code:</td>
+				<td>
+					<textarea name='escaped' id='escaped' rows='10' cols='103%'>_ZN9wikipedia7article8wikilinkC1ERKSs</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>Click here:</td>
+				<td>
+					<input type='button' name='cmdDoIt' id='cmdDoIt' value='Demangle!' onclick='main()'>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+</html>
