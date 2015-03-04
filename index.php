@@ -10,5 +10,7 @@ CreepWorks||<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
 <a href="https://github.com/Creeplays/creepworks">Source code</a>
 <br>
 <a href="https://plus.google.com/109720481660540178880" rel="publisher">Google+</a>
+<br>
+<a href="http://www.youtube.com/user/ThisIsCreeplays">YouTube</a>
 </body>
 </html>
