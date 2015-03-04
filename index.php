@@ -14,5 +14,7 @@ CreepWorks||<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
 <a href="http://www.youtube.com/user/ThisIsCreeplays">YouTube</a>
 <br>
 <a href="http://4pda.ru/forum/index.php?showuser=3427926">4PDA</a>
+<br>
+<a href="http://forum.xda-developers.com/member.php?u=5963514">XDA Developers</a>
 </body>
 </html>
