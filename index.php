@@ -8,5 +8,7 @@ CreepWorks||<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
 <a href="http://creepworks.herokuapp.com/cpp/index.html">C++ Tools</a>
 <br>
 <a href="https://github.com/Creeplays/creepworks">Source code</a>
+<br>
+<a href="https://plus.google.com/109720481660540178880" rel="publisher">Google+</a>
 </body>
 </html>
