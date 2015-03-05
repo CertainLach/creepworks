@@ -46,7 +46,7 @@
 					.replace(new RegExp(t, 'g'), 'Obfuscated');
 				writelog(false, '  Replaced');
 
-				eval(v.split('];')[0]);//.replace(/;/g,'stupidest_way_to_fix_but_mayble_it_works');
+				eval(v.split('];')[0]+'];');//.replace(/;/g,'stupidest_way_to_fix_but_mayble_it_works');
 				writelog(false, '  Got dictionary');
 				obf = 'var Obfuscated=["' + Obfuscated.join('","') + '"]'.replace('\\', '\\\\');
 				writelog(false, '  Deobf pattern detected');
