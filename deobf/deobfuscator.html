@@ -46,6 +46,7 @@
 					.replace(new RegExp(t, 'g'), 'Obfuscated');
 				writelog(false, '  Replaced');
 				eval(v.split(';')[0]);
+				writelog(false, '  Got dictionary');
 				obf = 'var Obfuscated=["' + Obfuscated.join('","') + '"]'.replace('\\', '\\\\');
 				writelog(false, '  Deobf pattern detected');
 				document.deob.dictionary.value = '';
@@ -56,10 +57,12 @@
 					document.deob.dict.value = Obfuscated[i];
 					Obfuscated[i] = document.deob.dict.value;
 				}
+				writelog(false, '  Deobfuscation dictionary filled');
 				for (var i = 0; i < Obfuscated.length; i++) {
 					while (v.indexOf('Obfuscated[' + i + ']') >= 0)
 						v = v.replace('Obfuscated[' + i + ']', '"' + Obfuscated[i] + '"');
 				}
+				writelog(false, '  Replaced all encrypted strings');
 				m = v.split(';');
 				m[0] = '';
 				v = m.join(';');
