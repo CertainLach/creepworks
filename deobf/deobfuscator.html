@@ -47,6 +47,7 @@
 				writelog(false, '  Replaced');
 				eval(v.split(';')[0]);
 				obf = 'var Obfuscated=["' + Obfuscated.join('","') + '"]'.replace('\\', '\\\\');
+				writelog(false, '  Deobf pattern detected');
 				document.deob.dictionary.value = '';
 				for (var i = 0; i < Obfuscated.length; i++) {
 					while(Obfuscated[i].indexOf('\n')>=0)
