@@ -11,24 +11,28 @@ CreepWorks||<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
 <br>
 On this site:
 <br>
-<br><a href="javascript:sh(1)">JavaScript Tools</a>
+<br>
+<a href="javascript:sh(1)">JavaScript Tools</a>
 <div id="spoiler_1" style="display:none">
-  <a href="http://creepworks.herokuapp.com/deobf/minifer.html">   Minifer</a>
+  <a href="http://creepworks.herokuapp.com/deobf/minifer.html">|=== Minifer</a>
   <br>
-  <a href="http://creepworks.herokuapp.com/deobf/LOLWAT_obf.html">   LOLWAT Obfuscator</a>
+  <a href="http://creepworks.herokuapp.com/deobf/LOLWAT_obf.html">|=== LOLWAT Obfuscator</a>
   <br>
-  <a href="http://creepworks.herokuapp.com/deobf/deobfuscator.html">   Deobfuscator</a>
+  <a href="http://creepworks.herokuapp.com/deobf/deobfuscator.html">|=== Deobfuscator</a>
   <br>
-  <a href="http://creepworks.herokuapp.com/deobf/pretty.html">   Formatter</a>
+  <a href="http://creepworks.herokuapp.com/deobf/pretty.html">==== Formatter</a>
 </div>
-<br><a href="javascript:sh(2)">C++ Tools</a>
+<br>
+<a href="javascript:sh(2)">C++ Tools</a>
 <div id="spoiler_2" style="display:none">
-  <a href="http://creepworks.herokuapp.com/cpp/demangle.html">   Demangler</a>
+  <a href="http://creepworks.herokuapp.com/cpp/demangle.html">==== Demangler</a>
 </div>
-<br><a href="javascript:sh(3)">Random projects</a>
+<br>
+<a href="javascript:sh(3)">Random projects</a>
 <div id="spoiler_3" style="display:none">
-  <a href="http://creepworks.herokuapp.com/random/mendeleev.html">   Mendeleev table</a>
+  <a href="http://creepworks.herokuapp.com/random/mendeleev.html">==== Mendeleev table</a>
 </div>
+<br>
 <a href="https://github.com/Creeplays/creepworks">Source code</a>
 
 <br>
