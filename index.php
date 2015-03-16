@@ -1,9 +1,10 @@
 <!doctype html>
-function sh(num) {
-   obj = document.getElementById("spoiler_"+num);
-   if( obj.style.display == "none" ) { obj.style.display = "block"; } else { obj.style.display = "none"; }
-}
-
+<script>
+   function sh(num) {
+      obj = document.getElementById("spoiler_"+num);
+      if( obj.style.display == "none" ) { obj.style.display = "block"; } else { obj.style.display = "none"; }
+   }
+</script>
 <html>
 <body>
 CreepWorks||<a href="http://darkworks.herokuapp.com/">DarkWorks</a>
@@ -22,7 +23,7 @@ On this site:
   <a href="http://creepworks.herokuapp.com/deobf/pretty.html">Formatter</a>
 </div>
 <br>
-<br><a href="javascript:sh(2)">C++ Tools</a>
+<a href="javascript:sh(2)">C++ Tools</a>
 <div id="spoiler_2" style="display:none">
   <a href="http://creepworks.herokuapp.com/cpp/demangle.html">Demangler</a>
 </div>
