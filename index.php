@@ -14,11 +14,11 @@ On this site:
 <br>
 <a href="javascript:sh(1)">JavaScript Tools</a>
 <div id="spoiler_1" style="display:none">
-  <a href="http://creepworks.herokuapp.com/deobf/minifer.html">|=== Minifer</a>
+  <a href="http://creepworks.herokuapp.com/deobf/minifer.html">||=== Minifer</a>
   <br>
-  <a href="http://creepworks.herokuapp.com/deobf/LOLWAT_obf.html">|=== LOLWAT Obfuscator</a>
+  <a href="http://creepworks.herokuapp.com/deobf/LOLWAT_obf.html">||=== LOLWAT Obfuscator</a>
   <br>
-  <a href="http://creepworks.herokuapp.com/deobf/deobfuscator.html">|=== Deobfuscator</a>
+  <a href="http://creepworks.herokuapp.com/deobf/deobfuscator.html">||=== Deobfuscator</a>
   <br>
   <a href="http://creepworks.herokuapp.com/deobf/pretty.html">==== Formatter</a>
 </div>
@@ -30,6 +30,11 @@ On this site:
 <br>
 <a href="javascript:sh(3)">Random projects</a>
 <div id="spoiler_3" style="display:none">
+  <a href="http://forum.xda-developers.com/htc-desire-c/general/rom-pac-rom-t2828714">||=== PAC MAN ROM for HTC Desire C</a>
+  <a href="http://4pda.ru/forum/index.php?s=&showtopic=457424&view=findpost&p=31704826">||=== PAC MAN ROM for HTC Desire C (On 4PDA)</a> 
+  <a href="http://forum.xda-developers.com/htc-desire-c/general/fix-wifi-usb-bluetooth-tether-t2830422">||=== WiFi Tether FIX for HTC Desire C</a>  
+  <a href="https://github.com/Creeplays/CM11_kernel_3.4.67_prestigio">||=== Prestigio PAP5500 kernel source (KitKat)</a> 
+  <a href="https://github.com/Creeplays/ModPE">||=== My ModPE scripts</a> 
   <a href="http://creepworks.herokuapp.com/random/mendeleev.html">==== Mendeleev table</a>
 </div>
 <br>
