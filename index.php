@@ -35,7 +35,8 @@ On this site:
     <br><a href="http://forum.xda-developers.com/htc-desire-c/general/fix-wifi-usb-bluetooth-tether-t2830422">||=== WiFi Tether FIX for HTC Desire C</a>  
     <br><a href="https://github.com/Creeplays/CM11_kernel_3.4.67_prestigio">||=== Prestigio PAP5500 kernel source (KitKat)</a> 
     <br><a href="https://github.com/Creeplays/ModPE">||=== My ModPE scripts</a> 
-   <br> <a href="http://creepworks.herokuapp.com/random/mendeleev.html">==== Mendeleev table</a>
+   <br> <a href="http://creepworks.herokuapp.com/random/mendeleev.html">||=== Mendeleev table</a>
+   <br> <a href="http://creepworks.herokuapp.com/random/text_encoder.html">==== Text encoder</a>
 </div>
 <br>
 <a href="https://github.com/Creeplays/creepworks">Source code</a>
