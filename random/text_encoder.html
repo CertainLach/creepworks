@@ -1,0 +1,31 @@
+<textarea id="input" rows="10" cols="70">BlahBlah</textarea>
+<br>
+<input type="button" value="Encode!" onclick="encode()">
+<br>
+<input type="button" value="Decode!" onclick="decode()">
+<script>
+b = document.getElementById('input');
+function encode() {
+	var retval = "";
+	for (var i = 0; i < b.value.length; i++) {
+		var code = b.value.charCodeAt(i).toString(4);
+		
+		var smiley = code.replace(/0/g, "̆̇̈̉̊̋̌").replace(/1/g, "̛̜̖̗̘̙̍̎̏̐̑̒̓̔̕̚").replace(/2/g, "ͤͥͦͧͨͩͪͫ̍̎̏̐̑").replace(/3/g, "͇͈͉͍͎͂̓̈́͆͊͋͌ͅ͏͓͔͕͐͑͒");
+		retval += smiley + "̴̵̧̨̤̥̦̩̪̫̬̭̮̯̰̱̲̳";
+	}
+	//document.write(retval);
+	b.value=retval;
+}
+
+function decode() {
+	var retval = "";
+	var all = b.value.split("̴̵̧̨̤̥̦̩̪̫̬̭̮̯̰̱̲̳");
+	for (var i = 0; i < all.length; i++) {
+		var code = all[i];
+		var numberZ = code.replace(/̆̇̈̉̊̋̌/g, "0").replace(/̛̜̖̗̘̙̍̎̏̐̑̒̓̔̕̚/g, "1").replace(/ͤͥͦͧͨͩͪͫ̍̎̏̐̑/g, "2").replace(/͇͈͉͍͎͂̓̈́͆͊͋͌ͅ͏͓͔͕͐͑͒/g, "3");
+		retval += String.fromCharCode(parseInt(numberZ, 4));
+	}
+	b.value=retval;
+}
+
+</script>
